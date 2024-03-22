@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int days_in_month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int month;
+
+    printf("Введіть номер місяця (1-12): ");
+    scanf("%d", &month);
+
+    if (month >= 1 && month <= 12) {
+        printf("У цьому місяці %d днів\n", days_in_month[month - 1]);
+    } else {
+        printf("Введено невірний номер місяця\n");
+    }
+
+    return 0;
+}
