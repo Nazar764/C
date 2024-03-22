@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+float calculate_income(float deposit, float interest_rate, int term) {
+    // Обчислення доходу по вкладу
+    float income = deposit * interest_rate * term / 100.0;
+    return income;
+}
+
+int main() {
+    float deposit, interest_rate;
+    int term;
+
+    // Запит користувача на введення величини вкладу, процентної ставки і терміну вкладу
+    printf("Введіть величину вкладу: ");
+    scanf("%f", &deposit);
+    printf("Введіть процентну ставку річних: ");
+    scanf("%f", &interest_rate);
+    printf("Введіть термін вкладу (у роках): ");
+    scanf("%d", &term);
+
+    // Виклик функції calculate_income для обчислення доходу по вкладу
+    float income = calculate_income(deposit, interest_rate, term);
+
+    // Виведення результату на екран
+    printf("Дохід по вкладу: %.2f\n", income);
+
+    return 0;
+}
