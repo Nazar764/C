@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <limits.h>
+
+#define ROWS 3
+#define COLS 3
+
+int main() {
+    int arr[ROWS][COLS]; //двовимірний масив
+
+
+    int minE = INT_MAX;
+    int maxE = INT_MIN;
+    int minRow, minCol, maxRow, maxCol;
+
+    printf("Введіть елементи масиву 3x3:\n");
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            scanf("%d", &arr[i][j]);
+
+            if (arr[i][j] < minE) {
+                minE = arr[i][j];
+                minRow = i;
+                minCol = j;
+            }
+            if (arr[i][j] > maxE) {
+                maxE = arr[i][j];
+                maxRow = i;
+                maxCol = j;
+            }
+        }
+    }
+
+    // результат
+    printf("Мінімальний елемент: %d, Індекси: [%d][%d]\n", minE, minRow, minCol);
+    printf("Максимальний елемент: %d, Індекси: [%d][%d]\n", maxE, maxRow, maxCol );
+
+    return 0;
+}
