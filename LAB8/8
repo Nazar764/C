@@ -2,24 +2,24 @@
 #include <string.h>
 
 int main() {
-    char sentence[100]; // Припустимо, що речення має довжину не більше 100 символів
-    char shortestWord[20]; // Припустимо, що найкоротше слово має довжину не більше 20 символів
+    char box[100]; // 100 символів
+    char Word[20]; // словов 20 символів
 
     printf("Введіть речення: ");
-    fgets(sentence, sizeof(sentence), stdin);
+    fgets(box, sizeof(box), stdin);
 
-    char *token = strtok(sentence, " "); // Розділяємо речення на слова за пробілами
+    char *token = strtok(box, " "); 
     if (token != NULL) {
-        strcpy(shortestWord, token); // Ініціалізуємо найкоротше слово першим словом з речення
+        strcpy(Word, token); 
     }
 
     while ((token = strtok(NULL, " ")) != NULL) {
-        if (strlen(token) < strlen(shortestWord)) {
-            strcpy(shortestWord, token); // Оновлюємо найкоротше слово, якщо знайдено слово коротше
+        if (strlen(token) < strlen(Word)) {
+            strcpy(Word, token); 
         }
     }
 
-    printf("Найкоротше слово: %s\n", shortestWord);
+    printf("Найкоротше слово: %s\n", Word);
 
     return 0;
 }
