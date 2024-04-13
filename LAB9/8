@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <limits.h>
+
+#define ROWS 3
+#define COLS 3
+
+int main() {
+    int arr[ROWS][COLS]; 
+
+    int minE = INT_MAX;
+    int maxE = INT_MIN;
+    int sum = 0; 
+    int count = 0; // Лічильник 
+
+    printf("Введіть елементи масиву 3x3:\n");
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            scanf("%d", &arr[i][j]);
+
+            if (arr[i][j] < minE) {
+                minE = arr[i][j];
+            }
+            if (arr[i][j] > maxE) {
+                maxE = arr[i][j];
+            }
+
+            if (arr[i][j] != minE && arr[i][j] != maxE) {
+                sum += arr[i][j];
+                count++;
+            }
+        }
+    }
+
+    
+    float a = (float)sum / count;
+
+
+    printf("Середнє арифметичне: %.2f\n", a);
+
+    return 0;
+}
