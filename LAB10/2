@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+#define MAX_COMPUTERS 200
+
+struct Computer {
+    char processor[50];
+    int ramSize;
+    char diskType[50];
+    int diskSize;
+    int GPU;
+};
+
+int main() {
+    struct Computer computers[MAX_COMPUTERS];
+    int numComputers;
+
+    printf("Введіть кількість комп'ютерів: ");
+    scanf("%d", &numComputers);
+
+    // Введення даних 
+    for (int i = 0; i < numComputers; ++i) {
+        printf("\nВведіть дані про %d-й комп'ютер:\n", i + 1);
+        printf("Тип процесора: ");
+        scanf("%s", computers[i].processor);
+        printf("Об'єм ОЗП: ");
+        scanf("%d", &computers[i].ramSize);
+        printf("Тип жорсткого диску: ");
+        scanf("%s", computers[i].diskType);
+        printf("Об'єм жорсткого диску: ");
+        scanf("%d", &computers[i].diskSize);
+        printf("Наявність окремої відеокарти (1 - так, 0 - ні): ");
+        scanf("%d", &computers[i].GPU);
+    }
+
+    // Виведення даних
+    printf("\nКомп'ютери з більше 8 ГБ ОЗП та окремою відеокартою:\n");
+    for (int i = 0; i < numComputers; ++i) {
+        if (computers[i].ramSize > 8 && computers[i].GPU == 1) {
+            printf("\nДані про %d-й комп'ютер:\n", i + 1);
+            printf("Тип процесора: %s\n", computers[i].processor);
+            printf("Об'єм ОЗП: %d ГБ\n", computers[i].ramSize);
+            printf("Тип жорсткого диску: %s\n", computers[i].diskType);
+            printf("Об'єм жорсткого диску: %d ГБ\n", computers[i].diskSize);
+            printf("Наявність окремої відеокарти: %s\n", computers[i].GPU ? "Так" : "Ні");
+        }
+    }
+
+    return 0;
+}
