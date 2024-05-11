@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main() {
+    int budget;
+    char userType;
+    int tasks;
+    char computerType;
+
+    printf("Ласкаво просимо до експертної системи вибору комп'ютера!\n");
+
+    printf("Ваш бюджет (у гривнях): ");
+    scanf("%d", &budget);
+
+    printf("Тип ПК/Ноутбука (g - геймерський, b - офісний, s - студенський): ");
+    scanf(" %c", &userType);
+
+    printf("Очікувані завдання (1 - легкі, 2 - середні, 3 - важкі): ");
+    scanf("%d", &tasks);
+
+    printf("Бажаний тип комп'ютера (p - ПК, n - ноутбук): ");
+    scanf(" %c", &computerType);
+
+    if (budget >= 20000) {
+        if (userType == 'g') {
+            if (tasks == 3) {
+                printf("Рекомендація: Купіть потужний ігровий %s.\n", (computerType == 'p') ? "ПК" : "ноутбук");
+            } else {
+                printf("Рекомендація: Купіть ігровий %s.\n", (computerType == 'p') ? "ПК" : "ноутбук");
+            }
+        } else if (userType == 'b') {
+            printf("Рекомендація: Купіть бізнес-%s.\n", (computerType == 'p') ? "ПК" : "ноутбук");
+        } else if (userType == 's') {
+            printf("Рекомендація: Купіть %s для навчання.\n", (computerType == 'p') ? "ПК" : "ноутбук");
+        } else {
+            printf("Невідомий тип користувача.\n");
+        }
+    } else if (budget >= 10000) {
+        if (userType == 'g') {
+            printf("Рекомендація: Купіть простий ігровий %s.\n", (computerType == 'p') ? "ПК" : "ноутбук");
+        } else if (userType == 'b') {
+            printf("Рекомендація: Купіть бюджетний бізнес-%s.\n", (computerType == 'p') ? "ПК" : "ноутбук");
+        } else if (userType == 's') {
+            printf("Рекомендація: Купіть недорогий %s для навчання.\n", (computerType == 'p') ? "ПК" : "ноутбук");
+        } else {
+            printf("Невідомий тип користувача.\n");
+        }
+    } else {
+        printf("Ваш бюджет занадто малий для покупки комп'ютера.\n");
+    }
+
+    return 0;
+}
